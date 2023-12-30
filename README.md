@@ -2,3 +2,9 @@
 
 
 Pembagian Tugas
+
+A - Regist
+
+B - Login
+
+C - Update Address
