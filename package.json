@@ -1,9 +1,10 @@
 {
   "devDependencies": {
-    "cypress": "^13.6.2"
+    "cypress": "^13.6.2",
+    "cypress-xpath": "^2.0.1"
   },
   "name": "sanber52-cypress-kelompok17",
-  "description": "Pembagian Tugas",
+  "description": "Kelompok17 Project Sanbercode",
   "version": "1.0.0",
   "main": "file.js",
   "dependencies": {
