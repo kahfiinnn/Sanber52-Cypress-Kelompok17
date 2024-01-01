@@ -24,6 +24,10 @@ Cypress.Commands.add('accessWhatsNewPage', () => {
     cy.get('.page-title-wrapper').should('contain','What\'s New');
     cy.wait(4000);
 })
+Cypress.Commands.add('deleteCartProduct', (rowNumber = 1) => { 
+    cy.xpath(`(//*[@class='action action-delete'])[${rowNumber}]`).click();
+    cy.wait(3000);
+})
 
 
 //
