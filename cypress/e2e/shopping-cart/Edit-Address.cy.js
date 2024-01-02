@@ -1,3 +1,7 @@
+import EditAddressCy from "../../support/PageObject-EditAddress/EditAddress.cy"
+const UserLogin = require('../../fixtures/Edit-Address.json')
+
+
 describe('Verify Update Address for New User',()=>{
 
     beforeEach('User Already login',()=>{
@@ -6,7 +10,9 @@ describe('Verify Update Address for New User',()=>{
 
         cy.url().should('include','https://magento.softwaretestingboard.com')
 
-        cy.log('user06@yopmail.com', 'Userenam06')
+        //cy.log('user06@yopmail.com', 'Userenam06') ->Command
+
+        cy.log(UserLogin.NewUser_Email,UserLogin.NewUser_Pass) //Fixtures
 
         cy.url().should('include', 'https://magento.softwaretestingboard.com/')
         
@@ -55,14 +61,14 @@ describe('Verify Update Address for New User',()=>{
         
         cy.visit('customer/address/new')
 
-        cy.get('#telephone').type('0211223344')
-        cy.get('#street_1').type('Jalan apel')
+        cy.get(EditAddressCy.telephone).type('0211223344') //POM 
+        cy.get(EditAddressCy.address).type('Jalan apel') //POM
         cy.get('#city').type('Jakarta')
         cy.get('#region_id').should('have.value','').select('California')
         cy.get('#zip').type('12321')
         cy.get('#country').should('have.value','US').select('')
 
-        cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+        cy.get(EditAddressCy.SaveBtn).click() //POM cara A
 
         cy.get('#country-error').should('have.text','Please select an option.')
     })
@@ -79,7 +85,7 @@ describe('Verify Update Address for New User',()=>{
         cy.get('#zip').type('12321')
         cy.get('#country').should('have.value','US').select('Indonesia')
 
-        cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+        EditAddressCy.ClickSaveBtn() //POM cara B
 
         cy.url().should('eq','customer/address/index/')
         cy.get('.message-success > div').should('have.text','You saved the address')
