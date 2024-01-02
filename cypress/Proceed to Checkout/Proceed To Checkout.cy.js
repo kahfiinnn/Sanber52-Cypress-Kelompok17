@@ -1,7 +1,7 @@
 describe('template spec', () => {
   it('Go To Website', () => {
     cy.viewport(1400, 900)
-    cy.visit('https://magento.softwaretestingboard.com/', { timeout: 10000 })
+    cy.visit('https://magento.softwaretestingboard.com/', { timeout: 20000 })
     // cy.get('a').should("contain.text", "Sign In").click();
     cy.contains("Sign In").click()
 
@@ -14,13 +14,13 @@ describe('template spec', () => {
     cy.get('[class="action showcart"]').click()
     cy.get('span').should('contain', 'Shopping Cart')
 
-    cy.get('[title="Qty"]').type('{backspace} 3')
+    cy.get('[title="Qty"]', { timeout: 20000 }).type('{backspace} 3')
 
-    cy.get('[data-role="proceed-to-checkout"]').click()
+    cy.get('[data-role="proceed-to-checkout"]', { timeout: 20000 }).click()
 
     //Form Address
    
-    cy.get('[name="company"]').should('not.be.visible').then(($company) => {
+    cy.get('[name="company"]', { timeout: 20000 }).should('not.be.visible').then(($company) => {
       if($company === 0){
 
         cy.get('[name="company"]').type('PT Sejahtera Abadi').should("have.value", "PT Sejahtera Abadi")
@@ -47,9 +47,9 @@ describe('template spec', () => {
       }
     })
     cy.contains('Next').click()
-    cy.get('[class="action primary checkout"]').should('have.text', '\n                    Place Order\n                ').click()
+    cy.get('[class="action primary checkout"]', { timeout: 20000 }).should('have.text', '\n                    Place Order\n                ').click()
 
-    cy.get('[data-ui-id="page-title-wrapper"]').should('have.text', 'Thank you for your purchase!')
+    cy.get('[data-ui-id="page-title-wrapper"]', { timeout: 20000 }).should('have.text', 'Thank you for your purchase!')
   });
   
   // it('Login', () => {
