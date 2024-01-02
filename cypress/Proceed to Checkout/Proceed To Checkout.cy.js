@@ -16,7 +16,7 @@ describe('template spec', () => {
 
     cy.get('[title="Qty"]', { timeout: 20000 }).type('{backspace} 3')
 
-    cy.get('[data-role="proceed-to-checkout"]', { timeout: 20000 }).click()
+    cy.get('[title="Proceed to Checkout"]', { timeout: 20000 }).click()
 
     //Form Address
    
