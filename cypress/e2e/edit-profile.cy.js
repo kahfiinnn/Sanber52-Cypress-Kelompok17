@@ -1,0 +1,20 @@
+describe('Edit Account Information', () => {
+    it('Positive Case - Edit Account Information with Normal Case', () => {
+        cy.visit('https://magento.softwaretestingboard.com/')
+        cy.contains('Sign In').click() 
+        cy.get('#email').type('hani.test@mailinator.com')
+        cy.get('#pass').type('Hanitest123') 
+        cy.get('#send2').click()
+        cy.get(':nth-child(2) > .customer-welcome > .customer-name > .action').click()
+        cy.get(':nth-child(2) > .customer-welcome > .customer-menu > .header > :nth-child(1) > a').click()
+        cy.contains('My Account')
+        cy.get('.block-dashboard-info > .block-content > .box > .box-actions > .edit > span').click()
+        cy.contains('Edit Account Information')
+        cy.get('#firstname').type('hani edit')
+        cy.get('lastname').type('success')
+        cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+        cy.contains('hani edit')
+        cy.contains('success')
+
+      })
+})
