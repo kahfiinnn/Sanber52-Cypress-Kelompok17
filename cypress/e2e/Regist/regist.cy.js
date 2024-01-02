@@ -9,7 +9,8 @@ describe('Magento - Registration', () => {
     cy.visit('');
     cy.get('.panel > .header > :nth-child(3) > a').click()
     cy.url().should('include', '/customer/account/create/')
-    
+    //Terkadang website nge bug yang membuat url tidak sesuai dengan should
+    //terkadang pula yang seharusnya tombol regist yang di-click malah tombol login yang di-click
   })
   it('Verify Failed Regist - Password Weak', () => {
     cy.get('#firstname').type('kahfin')
@@ -68,10 +69,10 @@ describe('Magento - Registration', () => {
     cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
     cy.get('.message-error > div').should('contain.text', 'There is already an account with this email address')
   })
-  it.only('Verify Success Regist', () => { 
+  it('Verify Success Regist', () => { 
     cy.get('#firstname').type('kahfin')
     cy.get('#lastname').type('ilham')
-    cy.get('#email_address').type('kel1778891ffdadad@gmail.com')
+    cy.get('#email_address').type('kel1778891ffddaddaadad@gmail.com')// harus diganti email baru agar dapat dibuat
     cy.get('#password').type('kelompok17!')
     cy.get('#password-strength-meter').should('have.text', '\nPassword Strength:\nVery Strong\n')
     cy.get('#password-confirmation').type('kelompok17!')
