@@ -1,6 +1,5 @@
-import EditAddressCy from "../../../support/PageObject-EditAddress/EditAddress.cy"
+import EditAddressCy from "../../support/pageObject/editAddress/EditAddress.cy"
 const UserLogin = require('../../../fixtures/Edit-Address.json')
-
 
 describe('Verify Update Address for New User',()=>{
 
