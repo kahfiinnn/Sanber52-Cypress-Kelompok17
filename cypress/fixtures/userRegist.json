@@ -1,0 +1,16 @@
+{
+    "invalidEmail": "hohoho",
+    "validPassword": "kelompok17!",
+    "validFirstName": "Kahfin",
+    "validLastName": "Ilham",
+    "message": [ { 
+        "invalidEmail": "Please enter a valid email address"
+    },
+    {
+        "statusPass": "\nPassword Strength:\nVery Strong\n"
+    }
+
+]
+
+
+}
